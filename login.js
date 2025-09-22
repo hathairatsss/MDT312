@@ -1,6 +1,13 @@
 window.onload = loginLoad;
 
 function loginLoad() {
+    const storedUsername = localStorage.getItem("username");
+    
+    if (!storedUsername) {
+        alert("คุณต้องลงทะเบียนก่อนเข้าสู่ระบบ");
+        window.location.href = "register.html";
+    }
+    
     const loginForm = document.getElementById("myLogin");
     loginForm.onsubmit = checkLogin;
 }
