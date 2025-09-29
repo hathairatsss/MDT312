@@ -27,10 +27,27 @@ function validateForm() {
         document.getElementById('errormsg').innerHTML = "Password ไม่ตรงกัน";
         return false;
     }
-    
-    // Save data to localStorage and redirect if validation passes
+
+    // Save all form data to localStorage
     localStorage.setItem("username", username.value);
     localStorage.setItem("password", password.value);
+    localStorage.setItem("firstname", firstname.value);
+    localStorage.setItem("lastname", lastname.value);
+    localStorage.setItem("gender", gender.value);
+    localStorage.setItem("bday", bday.value);
+    localStorage.setItem("email", email.value);
+
+    // Create a string with all the user's input
+    let registrationSummary = "ข้อมูลที่ลงทะเบียน:\n\n";
+    registrationSummary += "First Name: " + firstname.value + "\n";
+    registrationSummary += "Last Name: " + lastname.value + "\n";
+    registrationSummary += "Gender: " + (gender.value || 'ไม่ได้ระบุ') + "\n";
+    registrationSummary += "Birthday: " + bday.value + "\n";
+    registrationSummary += "Email: " + email.value + "\n";
+    registrationSummary += "Username: " + username.value + "\n";
+
+    // Display the summary in an alert
+    alert(registrationSummary);
     
     alert("Register เรียบร้อยแล้ว! กด OK เพื่อไปหน้า Login");
     return true; 
